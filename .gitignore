@@ -1,0 +1,22 @@
+# Unity generated
+Library/
+Temp/
+Logs/
+UserSettings/
+obj/
+.vs/
+.vscode/
+ 
+# Build outputs
+Build/
+Builds/
+*.apk
+*.aab
+ 
+# Unity meta files (manter apenas os necessarios)
+# NAO ignorar .meta de Assets, Packages e ProjectSettings
+ 
+# OS
+.DS_Store
+Thumbs.db
+ 

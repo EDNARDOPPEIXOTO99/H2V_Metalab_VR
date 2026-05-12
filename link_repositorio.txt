@@ -1,0 +1,19 @@
+LINK DO REPOSITORIO GITHUB — H2V_Metalab_VR
+============================================
+ 
+Projeto: H2V_Metalab_VR — Ambiente VR Educacional de Hidrogenio Verde
+Autor: Ednardo Pinheiro Peixoto
+Residencia: Web 3.0 – Residencia em TIC 29
+Data: Maio de 2026
+ 
+URL do repositorio:
+https://github.com/EDNARDOPPEIXOTO99/H2V_Metalab_VR
+ 
+Pastas incluidas no repositorio:
+- Assets/        (cena, scripts, materiais, prefabs)
+- Packages/      (Meta XR SDK e demais pacotes)
+- ProjectSettings/ (configuracoes de build e XR)
+- README.md
+- .gitignore
+- link_repositorio.txt
+ 
