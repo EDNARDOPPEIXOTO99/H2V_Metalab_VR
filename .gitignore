@@ -19,4 +19,11 @@ Builds/
 # OS
 .DS_Store
 Thumbs.db
+
+# Arquivos de projeto Visual Studio
+*.csproj
+*.slnx
+*.sln
+TempAssembly.dll
+Assembly-CSharp*
  
