@@ -1,7 +1,9 @@
 // ============================================================
 // H2V_Metalab_VR — Avançado
 // Script: TesteInteracoes.cs
-// Corrigido para usar o novo Input System (Unity 6 + Meta XR)
+// Objeto: GameManager (Empty Object na cena)
+// Função: Testa todas as interações pelo teclado no Editor.
+//         Usa FindFirstObjectByType (Unity 6 compatível).
 // Teclas: [1] LED  [2] Tanque  [3] Painel  [4] Sensor  [0] Status
 // Autor: Ednardo Pinheiro Peixoto
 // Residência TIC 29 — Web 3.0 | Maio 2026
@@ -20,10 +22,11 @@ public class TesteInteracoes : MonoBehaviour
 
     void Start()
     {
-        alertaLed  = FindObjectOfType<AlertaLedController>();
-        tanqueH2   = FindObjectOfType<TanqueH2Controller>();
-        painelInfo = FindObjectOfType<PainelInfoController>();
-        sensorMQ8  = FindObjectOfType<SensorProximidade>();
+        // Unity 6: usa FindFirstObjectByType no lugar do depreciado FindObjectOfType
+        alertaLed  = FindFirstObjectByType<AlertaLedController>();
+        tanqueH2   = FindFirstObjectByType<TanqueH2Controller>();
+        painelInfo = FindFirstObjectByType<PainelInfoController>();
+        sensorMQ8  = FindFirstObjectByType<SensorProximidade>();
 
         Debug.Log("=======================================");
         Debug.Log("[H2VSENSE] MODO DE TESTE ATIVADO");
@@ -39,35 +42,53 @@ public class TesteInteracoes : MonoBehaviour
         var kb = Keyboard.current;
         if (kb == null) return;
 
+        // [1] Alerta LED
         if (kb.digit1Key.wasPressedThisFrame)
         {
-            if (alertaLed != null) { alertaLed.AlternarEstado(); Debug.Log("[TESTE] Tecla 1 -> AlertaLed alternado!"); }
+            if (alertaLed != null)
+            {
+                alertaLed.AlternarEstado();
+                Debug.Log("[TESTE] Tecla 1 -> AlertaLed alternado!");
+            }
             else Debug.LogWarning("[TESTE] AlertaLedController nao encontrado!");
         }
 
+        // [2] Tanque H2
         if (kb.digit2Key.wasPressedThisFrame)
         {
-            if (tanqueH2 != null) { tanqueH2.AtivarTanque(); Debug.Log("[TESTE] Tecla 2 -> TanqueH2 ativado!"); }
+            if (tanqueH2 != null)
+            {
+                tanqueH2.AtivarTanque();
+                Debug.Log("[TESTE] Tecla 2 -> TanqueH2 ativado!");
+            }
             else Debug.LogWarning("[TESTE] TanqueH2Controller nao encontrado!");
         }
 
+        // [3] Painel Info
         if (kb.digit3Key.wasPressedThisFrame)
         {
-            if (painelInfo != null) { painelInfo.AlternarPainel(); Debug.Log("[TESTE] Tecla 3 -> PainelInfo alternado!"); }
+            if (painelInfo != null)
+            {
+                painelInfo.AlternarPainel();
+                Debug.Log("[TESTE] Tecla 3 -> PainelInfo alternado!");
+            }
             else Debug.LogWarning("[TESTE] PainelInfoController nao encontrado!");
         }
 
+        // [4] Sensor MQ8
         if (kb.digit4Key.wasPressedThisFrame)
         {
             if (sensorMQ8 != null)
             {
                 simulandoProximidade = !simulandoProximidade;
                 sensorMQ8.SimularProximidade(simulandoProximidade);
-                Debug.Log("[TESTE] Tecla 4 -> Sensor MQ8 " + (simulandoProximidade ? "ATIVO!" : "desativado"));
+                Debug.Log("[TESTE] Tecla 4 -> Sensor MQ8 " +
+                    (simulandoProximidade ? "ATIVO!" : "desativado"));
             }
             else Debug.LogWarning("[TESTE] SensorProximidade nao encontrado!");
         }
 
+        // [0] Status geral
         if (kb.digit0Key.wasPressedThisFrame)
         {
             Debug.Log("=== STATUS ===");
