@@ -16,68 +16,47 @@
 
 O **H2V_Metalab_VR** é um ambiente de Realidade Virtual desenvolvido em **Unity 6.3 LTS**, inspirado no projeto **H2VSENSE** da Peixoto Energy — sistema IoT de detecção inteligente de vazamento de hidrogênio verde.
 
-O laboratório simula um **galpão industrial** de 20m × 10m × 5m com equipamentos reais de uma planta de H₂ verde e **4 interações funcionais** implementadas em C#, testadas e confirmadas no Unity Editor.
+O laboratório simula um **galpão industrial** de 20m × 10m × 5m com paredes de textura de tijolo, equipamentos reais de uma planta de H₂ verde, modelos 3D importados (cadeira e laptop) e **4 interações funcionais** implementadas em C#, testadas com **Meta XR Simulator** (Meta Quest 3 simulado).
 
 ---
 
 ## 🎯 Contexto e Objetivos
 
-O **H2V_Metalab_VR** representa um ambiente industrial de monitoramento de segurança para H₂ verde no **Metaverso**, com objetivos claros:
+O **H2V_Metalab_VR** representa um ambiente industrial de monitoramento de H₂ verde no **Metaverso**:
 
-- **Treinamento técnico industrial** — simular procedimentos de segurança em plantas de hidrogênio para capacitação de operadores
-- **Educação imersiva** — demonstrar o funcionamento do sistema H2VSENSE de forma interativa e navegável
-- **Comunicação técnica** — apresentar o projeto a parceiros e investidores em formato de metaverso
-- **Prototipagem digital** — testar layouts e fluxos de monitoramento antes da implementação física
-
-O projeto conecta o mundo físico (hardware H2VSENSE com sensores MQ-8, ESP32-S3, MQTT) com o metaverso, criando uma **gêmea digital simplificada** da planta de H₂ verde da Peixoto Energy.
+- **Treinamento técnico industrial** — simular procedimentos de segurança em plantas de H₂
+- **Educação imersiva** — demonstrar o sistema H2VSENSE de forma interativa
+- **Comunicação técnica** — apresentar o projeto a parceiros e investidores no metaverso
+- **Prototipagem digital** — gêmea digital simplificada da planta H₂ da Peixoto Energy
 
 ---
 
 ## 🎮 Interações Implementadas em C#
 
-O projeto contém **4 interações funcionais** testadas e confirmadas no Console do Unity:
+**4 interações funcionais testadas e confirmadas** — ativadas por teclado (TesteInteracoes.cs) ou pelo Meta XR Simulator:
 
 | Tecla | Script | Objeto | Console Output |
 |---|---|---|---|
-| **[1]** | `AlertaLedController.cs` | Alerta_Led | `[H2VSENSE] ⚠️ ALERTA ATIVADO — Vazamento detectado!` |
-| **[2]** | `TanqueH2Controller.cs` | Tanque H2 | `[H2VSENSE] 🔵 Tanque H₂ ativado — verificando pressão...` |
-| **[3]** | `PainelInfoController.cs` | Painel_Info | `[H2VSENSE] 📊 Painel de dados aberto` |
-| **[4]** | `SensorProximidade.cs` | Sensor_MQ8 | `[H2VSENSE] 🔴 Sensor MQ-8 ativado — H₂ detectado!` |
-| **[0]** | `TesteInteracoes.cs` | GameManager | Status ✅ ou ❌ de cada script no Console |
-
-### Detalhes de cada interação
-
-#### 🔴 Alerta_Led — AlertaLedController.cs
-Clica no LED (tecla **[1]**) → alterna entre **NORMAL** (verde contínuo) e **ALERTA** (vermelho piscando), simulando o comportamento real do sensor H2VSENSE ao detectar vazamento de H₂.
-
-#### 🔵 Tanque H2 — TanqueH2Controller.cs
-Clica no tanque (tecla **[2]**) → executa animação de **pulsação de escala** (2 ciclos) com leitura simulada de pressão (120–350 bar) e status exibido no Console.
-
-#### 🟣 Painel_Info — PainelInfoController.cs
-Clica no painel (tecla **[3]**) → abre **dashboard em tempo real** com temperatura, pressão, nível de H₂ (%LEL) e status do sistema, atualizando a cada 1.5 segundos via Coroutine.
-
-```
-[H2VSENSE] Temp: 32,4°C | Pressão: 1,12bar | H₂: 3,02%LEL | Status: 🔴 ALERTA CRÍTICO
-[H2VSENSE] Temp: 29,1°C | Pressão: 1,07bar | H₂: 1,04%LEL | Status: ⚠️ ATENÇÃO
-```
-
-#### 🟢 Sensor_MQ8 — SensorProximidade.cs
-Aproximar do sensor (tecla **[4]**) → sensor muda para **amarelo** + exibe mensagem de alerta na UI. Ao se afastar, normaliza automaticamente após 2 segundos.
+| **[0]** | `TesteInteracoes.cs` | GameManager | Status ✅ de todos os scripts |
+| **[1]** | `AlertaLedController.cs` | Alerta_Led | `[H2VSENSE] ALERTA ATIVADO — Vazamento detectado!` |
+| **[2]** | `TanqueH2Controller.cs` | Tanque H2 | `[H2VSENSE] Tanque H₂ ativado — verificando pressão...` |
+| **[3]** | `PainelInfoController.cs` | Painel_Info | `[H2VSENSE] Temp: 32,4°C \| Pressão: 1,12bar \| H₂: 3,02%LEL` |
+| **[4]** | `SensorProximidade.cs` | Sensor_MQ8 | `[H2VSENSE] Sensor MQ-8 ativado — H₂ detectado!` |
 
 ---
 
-## 🏭 Estrutura do Galpão Industrial
+## 🏭 Ambiente — Galpão Industrial
 
 ```
 Galpão: 20m largura × 10m profundidade × 5m altura
-├── Piso_Principal     (Plane  — chão navegável)
-├── Parede_Fundo       (Cube   — 20×5×0.3)
-├── Parede_Frente_L    (Cube   — 8×5×0.3)
-├── Parede_Frente_R    (Cube   — 8×5×0.3)
-├── Parede_Esquerda    (Cube   — 0.3×5×10)
-├── Parede_Direita     (Cube   — 0.3×5×10)
-├── Cobertura_Telhado  (Cube   — 20×0.2×10)
-└── Porta_Entrada      (Cube   — 4×5×0.1)
+Textura: Tijolo industrial em todas as paredes
+├── Piso_Principal     — chão navegável (textura clara)
+├── Parede_Fundo       — textura tijolo
+├── Parede_Frente_L/R  — com abertura para Porta_Entrada
+├── Parede_Esquerda    — textura tijolo
+├── Parede_Direita     — textura tijolo
+├── Cobertura_Telhado  — teto metálico
+└── Porta_Entrada      — acesso ao laboratório
 ```
 
 ---
@@ -88,6 +67,8 @@ Galpão: 20m largura × 10m profundidade × 5m altura
 |---|---|
 | **Unity** | 6.3 LTS (6000.3.15f1) |
 | **Meta XR All-in-One SDK** | Instalado via Package Manager |
+| **Meta XR Simulator** | Meta Quest 3 simulado — 72fps — Ativo ✅ |
+| **BuildingBlock Camera Rig** | Substituiu XR Origin (VR) |
 | **XR Plugin Management** | Oculus (Android) + OpenXR (PC) |
 | **Android Build Support** | API Min 32 · Target 34 · ASTC |
 | **Render Pipeline** | URP (Universal Render Pipeline) |
@@ -102,23 +83,19 @@ Galpão: 20m largura × 10m profundidade × 5m altura
 2. Clicar em **Open** → navegar até `H2V_Metalab_VR/`
 3. Abrir a cena: `Assets/Scenes/H2V_Metalab_VR.unity`
 4. Pressionar **Play (▶)** no Unity Editor
-5. Clicar na aba **Game**
 
-### Controles de Navegação (PC/Notebook)
+### Testar com Meta XR Simulator
 
-| Ação | Controle |
-|---|---|
-| Mover câmera | Botão direito + **W A S D** |
-| Subir / Descer | Botão direito + **E** / **Q** |
-| Rotacionar visão | **Alt** + botão esquerdo |
-| Zoom | Scroll do mouse |
-| Focar em objeto | Selecionar + tecla **F** |
+1. **Meta XR Tools → Meta XR Simulator → Enable**
+2. Pressionar **Play (▶)**
+3. O Simulator abre com visão do Meta Quest 3
+4. Navegar com mouse + teclado simulando o headset
 
 ### Testar Interações por Teclado
 
 | Tecla | Interação |
 |---|---|
-| **[0]** | Mostra status de todos os scripts no Console |
+| **[0]** | Status de todos os scripts no Console |
 | **[1]** | Alerta_Led — alterna normal/alerta |
 | **[2]** | Tanque H2 — pulsação + leitura de pressão |
 | **[3]** | Painel_Info — abre/fecha dashboard |
@@ -131,16 +108,12 @@ Galpão: 20m largura × 10m profundidade × 5m altura
 ```
 H2V_Metalab_VR/
 ├── Assets/
-│   ├── Materials/           ← 9 materiais coloridos por objeto
-│   │   ├── Mat_Tanque_H2.mat      (azul  #1A5276)
-│   │   ├── Mat_Sensor_MQ8.mat     (verde #1E8449)
-│   │   ├── Mat_Painel_Info.mat    (roxo  #6C3483)
-│   │   ├── Mat_Mesa_Controle.mat  (marrom #784212)
-│   │   ├── Mat_Alerta_Led.mat     (vermelho #C0392B)
-│   │   ├── Mat_Piso.mat           (cinza claro)
-│   │   ├── Mat_Parede.mat         (cinza industrial)
-│   │   └── Mat_Telhado.mat        (cinza escuro metálico)
+│   ├── Materials/           ← 10 materiais coloridos + Mat_Cadeira
+│   ├── Modelos 3D/          ← cadeira e laptop (assets importados)
+│   │   ├── cadeira/
+│   │   └── laptop/
 │   ├── Oculus/              ← Meta XR SDK assets
+│   ├── Prints/              ← Screenshots do projeto
 │   ├── Scenes/
 │   │   └── H2V_Metalab_VR.unity
 │   ├── Scripts/             ← 5 scripts C# comentados
@@ -149,6 +122,7 @@ H2V_Metalab_VR/
 │   │   ├── PainelInfoController.cs
 │   │   ├── SensorProximidade.cs
 │   │   └── TesteInteracoes.cs
+│   ├── Textures/            ← Texturas das paredes (tijolo)
 │   ├── Settings/
 │   └── README.txt
 ├── Packages/                ← Meta XR SDK (manifest.json)
@@ -164,26 +138,26 @@ H2V_Metalab_VR/
 
 ```
 H2V_Metalab_VR (Scene)
-├── Global Volume
+├── [BuildingBlock] Camera Rig   ← Meta XR Building Block
 ├── XR Interaction Manager
-├── [GALPAO]
-│   ├── Piso_Principal
-│   ├── Parede_Fundo
-│   ├── Parede_Frente_L / Parede_Frente_R
-│   ├── Parede_Esquerda / Parede_Direita
-│   ├── Cobertura_Telhado
-│   └── Porta_Entrada
-├── [LAB_OBJETOS]
+├── CENARIO
+│   └── GALPAO
+│       ├── Piso_Principal
+│       ├── Parede_Fundo         ← textura tijolo
+│       ├── Parede_Frente_L / R
+│       ├── Parede_Esquerda / Direita
+│       ├── Cobertura_Telhado
+│       └── Porta_Entrada
+├── LAB_OBJETOS
 │   ├── Tanque H2       ← TanqueH2Controller.cs
 │   ├── Sensor_MQ8      ← SensorProximidade.cs
 │   ├── Painel_Info     ← PainelInfoController.cs
 │   ├── Alerta_Led      ← AlertaLedController.cs
-│   └── Mesa_Controle
-├── [XR_SYSTEM]
-│   └── XR Origin (VR)
-│       └── Camera Offset
-│           └── Main Camera
-├── [LIGHTING]
+│   ├── Mesa_Controle
+│   ├── Cadeira_Controle  ← modelo 3D importado
+│   └── Laptop            ← modelo 3D importado
+├── XR_SYSTEM
+├── LIGHTING
 │   └── Directional Light
 ├── UI
 └── GameManager         ← TesteInteracoes.cs
@@ -195,44 +169,45 @@ H2V_Metalab_VR (Scene)
 
 ### Como o projeto foi desenvolvido
 
-1. Configuração do Unity 6.3 LTS com Meta XR All-in-One SDK e XR Plugin Management
-2. Build Settings Android: API Min 32, Target 34, ASTC — confirmado no Project Setup Tool (0 erros)
-3. Construção do galpão industrial com 6 Cubes dimensionados (20m × 10m × 5m)
-4. Inserção dos 5 objetos do laboratório como primitivos Unity
-5. Criação de 9 materiais coloridos distintos para identificação visual
-6. Desenvolvimento dos 4 scripts C# de interação com lógica real do H2VSENSE
-7. Criação do GameManager com TesteInteracoes.cs para validação por teclado
-8. Testes funcionais confirmados — logs [H2VSENSE] no Console para todas as 4 interações
-9. Commit e push para GitHub com estrutura completa
+1. Configuração Unity 6.3 LTS + Meta XR All-in-One SDK + XR Plugin Management
+2. Build Settings Android: API Min 32, Target 34, ASTC — 0 erros no Project Setup Tool
+3. Substituição do XR Origin por **BuildingBlock Camera Rig** (Meta Building Block)
+4. Construção do galpão industrial com texturas de tijolo nas paredes
+5. Inserção dos 5 objetos do laboratório com materiais coloridos
+6. Importação de modelos 3D externos (cadeira e laptop) para a Mesa_Controle
+7. Desenvolvimento dos 4 scripts C# de interação comentados
+8. Ativação e configuração do **Meta XR Simulator** (Meta Quest 3, 72fps)
+9. Testes funcionais — logs [H2VSENSE] confirmados no Console
+10. Organização da hierarquia em CENARIO/GALPAO, LAB_OBJETOS, XR_SYSTEM, LIGHTING
 
 ### Principais dificuldades e soluções
 
-- **Conflito Input System** — `UnityEngine.Input` incompatível com novo Input System → resolvido usando `Keyboard.current` do `UnityEngine.InputSystem`
-- **Câmera duplicada** ao adicionar XR Origin → remoção da Main Camera avulsa
-- **Collider deslocado** no Tanque (Center X:5.96, Z:-8.94) → Reset no Inspector
-- **API Level 29** rejeitado → corrigido para Min 32 / Target 34
-- **Espaço em disco** insuficiente → liberação de ~7 GB
+- **Conflito Input System** → resolvido com `Keyboard.current` do `UnityEngine.InputSystem`
+- **Objetos abaixo do piso** → ajuste de Position Y para (Scale Y / 2) + altura do piso
+- **Modelos 3D importados sem textura** → criação de Mat_Cadeira e aplicação manual
+- **API Level 29 rejeitado** → corrigido para Min 32 / Target 34
+- **Meta XR Simulator** — sessão interrompida → normal ao fechar o Play no Editor
 
 ---
 
 ## 🚀 Melhorias Futuras
 
-- [ ] Build APK e testes no Meta Quest 2/3
+- [ ] Build APK e testes no Meta Quest 2/3 físico
 - [ ] Integração com dados IoT reais do H2VSENSE via MQTT
 - [ ] Animação da Porta_Entrada por proximidade
-- [ ] Sistema de partículas de vapor no Tanque H2
-- [ ] Canvas/UI World Space com dashboard visível no galpão
+- [ ] Canvas/UI World Space com dashboard no galpão
 - [ ] Multiplayer colaborativo com Photon PUN2
+- [ ] Narração em áudio ao se aproximar dos equipamentos
 
 ---
 
 ## 📚 Contexto Acadêmico
 
-> Projeto desenvolvido como **Projeto Final — Meu Primeiro Ambiente VR (Nível básico e Avançado)**
+> Projeto desenvolvido como **Projeto Final — Meu Primeiro Ambiente VR**
 > Trilha de Metaverso – Web 3.0 | Residência em TIC 29
 >
-> ⚠️ Desenvolvido e testado no Unity Editor (PC/notebook), sem dispositivo VR físico,
-> conforme permitido pela proposta da atividade.
+> ⚠️ Desenvolvido e testado no Unity Editor (PC) com Meta XR Simulator,
+> sem dispositivo VR físico, conforme permitido pela proposta da atividade.
 
 ---
 
