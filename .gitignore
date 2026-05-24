@@ -38,6 +38,16 @@ TempAssembly.dll
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 
+# ── Arquivos Unity desnecessários para entrega ──
+Assets/TutorialInfo/
+Assets/TutorialInfo.meta
+Assets/CompositionLayers/
+Assets/CompositionLayers.meta
+Assets/README.txt
+Assets/README.txt.meta
+Assets/Readme.asset
+Assets/Readme.asset.meta
+
 # ── Sistema operacional ──
 .DS_Store
 .DS_Store?
@@ -47,13 +57,13 @@ Desktop.ini
 ehthumbs.db
 
 # ==============================================
-# Estrutura do projeto:
+# O que deve ser entregue:
 # Assets/           → cena, scripts, materiais, modelos
 # Packages/         → manifest.json, packages-lock.json
 # ProjectSettings/  → build settings, XR plugin, input
 # README.md
 # .gitignore
 # link_repositorio.txt
-# Relatorio_Tecnico_Basico.docx
-# Relatorio_Tecnico_Avancado.docx
+# Relatorio_Tecnico_Basico.pdf
+# Relatorio_Tecnico_Avancado.pdf
 # ==============================================
