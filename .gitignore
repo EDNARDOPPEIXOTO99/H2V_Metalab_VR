@@ -1,29 +1,59 @@
-# Unity generated
+# ==============================================
+# .gitignore — H2V_Metalab_VR
+# Unity 6.3 LTS + Meta XR SDK
+# Residência em TIC 29 — Web 3.0
+# Autor: Ednardo Pinheiro Peixoto
+# ==============================================
+
+# ── Unity gerado automaticamente ──
 Library/
 Temp/
 Logs/
 UserSettings/
 obj/
-.vs/
-.vscode/
- 
-# Build outputs
+MemoryCaptures/
+Recordings/
+
+# ── Build outputs ──
 Build/
 Builds/
 *.apk
 *.aab
- 
-# Unity meta files (manter apenas os necessarios)
-# NAO ignorar .meta de Assets, Packages e ProjectSettings
- 
-# OS
-.DS_Store
-Thumbs.db
+*.ipa
 
-# Arquivos de projeto Visual Studio
+# ── Visual Studio / Rider / VSCode ──
+.vs/
+.vscode/
+.idea/
 *.csproj
-*.slnx
 *.sln
+*.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+
+# ── Arquivos Unity gerados ──
 TempAssembly.dll
-Assembly-CSharp*
- 
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+
+# ── Sistema operacional ──
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ==============================================
+# Estrutura do projeto:
+# Assets/           → cena, scripts, materiais, modelos
+# Packages/         → manifest.json, packages-lock.json
+# ProjectSettings/  → build settings, XR plugin, input
+# README.md
+# .gitignore
+# link_repositorio.txt
+# Relatorio_Tecnico_Basico.docx
+# Relatorio_Tecnico_Avancado.docx
+# ==============================================
