@@ -1,19 +1,28 @@
 LINK DO REPOSITORIO GITHUB — H2V_Metalab_VR
 ============================================
- 
-Projeto: H2V_Metalab_VR — Ambiente VR Educacional de Hidrogenio Verde
-Autor: Ednardo Pinheiro Peixoto
+
+Projeto  : H2V_Metalab_VR — Laboratorio VR Interativo de Hidrogenio Verde
+Autor    : Ednardo Pinheiro Peixoto
 Residencia: Web 3.0 – Residencia em TIC 29
-Data: Maio de 2026
- 
+Data     : Maio de 2026
+
 URL do repositorio:
 https://github.com/EDNARDOPPEIXOTO99/H2V_Metalab_VR
- 
-Pastas incluidas no repositorio:
-- Assets/        (cena, scripts, materiais, prefabs)
-- Packages/      (Meta XR SDK e demais pacotes)
-- ProjectSettings/ (configuracoes de build e XR)
-- README.md
-- .gitignore
-- link_repositorio.txt
- 
+
+Arquivos e pastas incluidas no repositorio:
+- Assets/                        (cena, scripts, materiais, modelos 3D, texturas, prints)
+- Packages/                      (Meta XR SDK e demais pacotes)
+- ProjectSettings/               (configuracoes de build, XR Plugin, input)
+- README.md                      (documentacao principal — GitHub)
+- README.txt                     (instrucoes basica + avancada)
+- .gitignore                     (arquivos ignorados pelo git)
+- link_repositorio.txt           (este arquivo)
+- Relatorio_Tecnico_Basico.docx  (relatorio atividade basica — 3 interacoes)
+- Relatorio_Tecnico_Avancado.docx(relatorio atividade avancada — 5 interacoes)
+- Relatorio_Tecnico_Basico.pdf   (versao PDF — atividade basica)
+- Relatorio_Tecnico_Avancado.pdf (versao PDF — atividade avancada)
+
+Configuracao tecnica:
+- Unity 6.3 LTS (6000.3.13f1)
+- Meta XR All-in-One SDK
+- Build Android / Meta Quest / API 32-34 / ASTC / URP
