@@ -1,6 +1,6 @@
 # ==============================================
 # .gitignore — H2V_Metalab_VR
-# Unity 6.3 LTS + Meta XR SDK
+# Unity 6.3 LTS (6000.3.13f1) + Meta XR SDK
 # Residência em TIC 29 — Web 3.0
 # Autor: Ednardo Pinheiro Peixoto
 # ==============================================
@@ -57,13 +57,14 @@ Desktop.ini
 ehthumbs.db
 
 # ==============================================
-# O que deve ser entregue:
-# Assets/           → cena, scripts, materiais, modelos
-# Packages/         → manifest.json, packages-lock.json
-# ProjectSettings/  → build settings, XR plugin, input
-# README.md
-# .gitignore
-# link_repositorio.txt
+# ✅ O que está no repositório:
+# Assets/                          → cena, scripts, materiais, modelos, texturas, prints
+# Packages/                        → manifest.json, packages-lock.json
+# ProjectSettings/                 → build settings, XR plugin, input
+# README.md                        → documentação principal
+# README.txt                       → instruções básica + avançada
+# .gitignore                       → este arquivo
+# link_repositorio.txt             → link para entrega no Homero
 # Relatorio_Tecnico_Basico.pdf
 # Relatorio_Tecnico_Avancado.pdf
 # ==============================================
