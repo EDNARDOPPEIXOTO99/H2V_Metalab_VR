@@ -62,7 +62,7 @@ INTERACOES (3 — Atividade Basica)
 
 CONFIGURACAO TECNICA
 --------------------
-- Unity 6.3 LTS (6000.3.15f1)
+- Unity 6.3 LTS (6000.3.13f1)
 - Meta XR All-in-One SDK instalado via Package Manager
 - [BuildingBlock] Camera Rig (Meta XR SDK)
 - Build Settings: Android / API Min 32 / Target 34 / ASTC

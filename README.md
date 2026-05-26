@@ -14,7 +14,7 @@
 
 ## 🚀 Apresentando o Projeto
 
-O **H2V_Metalab_VR** é um ambiente de Realidade Virtual desenvolvido em **Unity 6.3 LTS** (6000.3.15f1), inspirado no projeto **H2VSENSE** da Peixoto Energy — sistema IoT de detecção inteligente de vazamento de hidrogênio verde.
+O **H2V_Metalab_VR** é um ambiente de Realidade Virtual desenvolvido em **Unity 6.3 LTS** (6000.3.13f1), inspirado no projeto **H2VSENSE** da Peixoto Energy — sistema IoT de detecção inteligente de vazamento de hidrogênio verde.
 
 O laboratório simula um **galpão industrial** com paredes de textura de tijolo, skybox de céu aberto, modelos 3D importados (cadeira e laptop) e **5 interações funcionais** via **ISDK_HandGrabInteraction** do Meta XR SDK, testadas com **Meta XR Simulator** (Quest 3 simulado).
 
@@ -35,7 +35,7 @@ O **H2V_Metalab_VR** representa um ambiente industrial de monitoramento de H₂ 
 
 | Tecnologia | Versão / Detalhes |
 |---|---|
-| **Unity** | 6.3 LTS (6000.3.15f1) |
+| **Unity** | 6.3 LTS (6000.3.13f1) |
 | **Meta XR All-in-One SDK** | Package Manager |
 | **[BuildingBlock] Camera Rig** | Câmera VR oficial Meta |
 | **Meta XR Simulator** | Quest 3 virtual (sem hardware) |
@@ -48,7 +48,7 @@ O **H2V_Metalab_VR** representa um ambiente industrial de monitoramento de H₂ 
 ## ⚙️ Configuração Técnica
 
 ```
-Unity 6.3 LTS (6000.3.15f1)
+Unity 6.3 LTS (6000.3.13f1)
 Meta XR All-in-One SDK      → Package Manager
 [BuildingBlock] Camera Rig  → câmera VR Meta XR SDK
 XR Simulator (Quest 3)      → testes sem hardware físico
